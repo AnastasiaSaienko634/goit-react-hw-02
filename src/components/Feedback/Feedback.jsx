@@ -13,7 +13,7 @@ export default function Feedback({
       <p className={css.reviewsItemNeutral}>Neutral: {neutral} </p>
       <p className={css.reviewsItemBad}>Bad: {bad}</p>
       <p className={css.reviewsItemTotal}>Total: {totalFeedback}</p>
-      <p className={css.reviewsItemPositive}>Positive: {positiveFeedback()}%</p>
+      <p className={css.reviewsItemPositive}>Positive: {positiveFeedback}%</p>
     </>
   );
 }

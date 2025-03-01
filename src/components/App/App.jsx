@@ -3,6 +3,7 @@ import Description from "../Description/Description";
 import Feedback from "../Feedback/Feedback";
 import Options from "../Options/Options";
 import css from "./App.module.css";
+import Notification from "../Notification/Notification";
 
 function App() {
   const [typeOfReviews, setTypeOfReviews] = useState(() => {
@@ -26,9 +27,10 @@ function App() {
   const totalFeedback =
     typeOfReviews.good + typeOfReviews.neutral + typeOfReviews.bad;
 
-  const positiveFeedback = () => {
-    return Math.round((typeOfReviews.good / totalFeedback) * 100);
-  };
+  const positiveFeedback =
+    totalFeedback > 0
+      ? Math.round((typeOfReviews.good / totalFeedback) * 100)
+      : 0;
 
   const resetFeedback = () => {
     setTypeOfReviews({
@@ -55,7 +57,7 @@ function App() {
           positiveFeedback={positiveFeedback}
         />
       ) : (
-        <p className={css.noFeedback}>No feedback yet</p>
+        <Notification />
       )}
     </>
   );
